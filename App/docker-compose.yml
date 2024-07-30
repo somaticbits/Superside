@@ -1,0 +1,46 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      - OPENAI_API_KEY=sk-proj-fo7CY0PuT1ECmr4Gakr4T3BlbkFJrJ7W4Xl6NcQIjus6viHo
+    ports:
+      - 3000:3000
+    depends_on:
+      - frontend
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./frontend:/app/
+      - nginx-conf:/etc/nginx/conf.d
+      - certbot-conf:/etc/letsencrypt
+      - certbot-www:/var/www/certbot
+
+  graphdb:
+    image: ontotext/graphdb:10.7.1
+    restart: unless-stopped
+    ports:
+      - "7200:7200"
+    environment:
+      GDB_JAVA_OPTS: -Xms4G -Xmx4G
+      graphdb.connector.port: "7200"
+      graphdb.gpt.token: "sk-proj-fo7CY0PuT1ECmr4Gakr4T3BlbkFJrJ7W4Xl6NcQIjus6viHo"
+      graphdb.gpt.model: gpt-3.5-turbo
+      graphdb.gpt.timeout: 180
+      graphdb.gpt.url: https://api.openai.com/v1/chat/completions
+    volumes:
+      - graphdb_data:/opt/graphdb/home
+
+volumes:
+    nginx-conf:
+    certbot-conf:
+    certbot-www:
+    graphdb_data:
