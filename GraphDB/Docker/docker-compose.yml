@@ -8,7 +8,7 @@ services:
     environment:
       GDB_JAVA_OPTS: -Xms4G -Xmx4G
       graphdb.connector.port: "7200"
-      graphdb.gpt.token: "sk-proj-fo7CY0PuT1ECmr4Gakr4T3BlbkFJrJ7W4Xl6NcQIjus6viHo"
+      graphdb.gpt.token: ""
       graphdb.gpt.model: gpt-3.5-turbo
       graphdb.gpt.timeout: 180
       graphdb.gpt.url: https://api.openai.com/v1/chat/completions
