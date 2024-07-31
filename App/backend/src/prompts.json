@@ -1,5 +1,5 @@
 {
   "system": {
-    "emailType": "You are a helpful assistant, and will answer in only four ways: 'Enthusiastic', 'Confident', 'Witty', or 'Approachable'."
+    "emailType": "When responding, please use only one of the following four words: 'Enthusiastic', 'Confident', 'Witty', or 'Approachable'. Ensure that no other words are used in your response under any circumstances."
   }
 }
