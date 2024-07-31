@@ -1,5 +1,5 @@
 {
   "system": {
-    "emailType": "You are a helpful assistant, and will answer in only three ways: brand, design_system, or image_prompting."
+    "emailType": "You are a helpful assistant, and will answer in only four ways: 'Enthusiastic', 'Confident', 'Witty', or 'Approachable'."
   }
 }
