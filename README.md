@@ -1,4 +1,4 @@
-![](superside.logo.svg)
+![](./superside.logo.svg)
 
 # Superside RAG Application
 
