@@ -27,7 +27,12 @@ def extract_text_from_pdf(pdf_path):
     # Define a function to clean unwanted characters
     def clean_text(text):
         # Use a regular expression to keep only alphanumeric characters and spaces
-        cleaned_text = re.sub(r'[^A-Za-z0-9\s]', '', text)
+        # We don't need the numbers for the tone of voice
+        cleaned_text = re.sub(r'[^A-Za-z\s]', '', text)
+
+        # Can be used for further processing (brand identity - colors, fonts, etc.)
+        #cleaned_text = re.sub(r'[^A-Za-z0-9\s]', '', text)
+
         cleaned_text = re.sub(r'\s+', ' ', cleaned_text)
         return cleaned_text
 
@@ -36,7 +41,7 @@ def extract_text_from_pdf(pdf_path):
         # Get the page
         page = pdf_document.load_page(page_num)
         # Extract text from the page
-        page_text = page.get_text("text").strip()
+        page_text = page.get_text().strip()
         # Clean the extracted text
         cleaned_text = clean_text(page_text)
         # Append cleaned text to the result
@@ -108,9 +113,10 @@ def create_rdf_file(graph, rdf_file_path):
 
 
 if __name__ == "__main__":
-    pdf_path = "burger-king-2020-clean.pdf"
+    pdf_path = "burger-king-2020-TOV.pdf"
     text = extract_text_from_pdf(pdf_path)
+    print(text)
     structured_data = preprocess_text(text)
     graph = convert_to_graphdb_format(structured_data)
     print(graph.edges())
-    create_rdf_file(graph, "output.ttl")
+    create_rdf_file(graph, "output-tov.ttl")

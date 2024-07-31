@@ -1,0 +1,83 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix bk: <http://www.burgerking.com/brand#> .
+
+# Defining classes
+bk:BrandIdentity rdfs:label "Brand Identity" .
+bk:VerbalIdentity rdfs:subClassOf bk:BrandIdentity ;
+    rdfs:label "Verbal Identity" .
+bk:Characteristic rdfs:subClassOf bk:BrandIdentity ;
+    rdfs:label "Characteristic" .
+
+# Instances of Verbal Identity Characteristics
+bk:Enthusiastic rdf:type bk:Characteristic ;
+    rdfs:label "Enthusiastic" ;
+    bk:description "We unashamedly revel in our food and its deliciousness with bold, upbeat adjectives that describe the taste, look, and texture. We can be energetic but not manic, excited but not naive, spirited but not childish." .
+
+bk:Confident rdf:type bk:Characteristic ;
+    rdfs:label "Confident" ;
+    bk:description "We are Burger King, Home of the Whopper, Flame-grilled since, and damn proud of it. We do not hide behind the status quo; we are bold and unafraid. We can be bold but not flashy, proud but not vain, challenging but not in-your-face." .
+
+bk:Witty rdf:type bk:Characteristic ;
+    rdfs:label "Witty" ;
+    bk:description "We're smart and quick. We poke a little fun at ourselves and others. We know what's going on in culture and reference it without seeming too try-hard. We can be sarcastic but not cruel, ironic but not jaded, smart but not highbrow." .
+
+bk:Approachable rdf:type bk:Characteristic ;
+    rdfs:label "Approachable" ;
+    bk:description "We're comfortable in our skin and talk to people at eye level, keeping the language simple, conversational, and authentic. What you see is what you get; our ingredients are real, and so are we. We are clear not terse, real not pretentious, friendly not false." .
+
+# Examples of Verbal Identity
+bk:Example1 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Enthusiastic ;
+    bk:exampleText "Ooey gooey melty cheese" .
+
+bk:Example2 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Enthusiastic ;
+    bk:exampleText "Piping hot and golden brown" .
+
+bk:Example3 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Confident ;
+    bk:exampleText "Home of the Whopper" .
+
+bk:Example4 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Confident ;
+    bk:exampleText "Have It Your Way" .
+
+bk:Example5 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Witty ;
+    bk:exampleText "The only burger that plays with fire and never gets burned" .
+
+bk:Example6 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Approachable ;
+    bk:exampleText "Order in with pickup or free delivery" .
+
+# Descriptions of Verbal Identity Characteristics
+bk:EnthusiasticDesc rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Enthusiastic ;
+    bk:exampleText "We unashamedly revel in our food and its deliciousness with bold, upbeat adjectives that describe the taste, look, and texture. We can be energetic but not manic, excited but not naive, spirited but not childish." .
+
+bk:ConfidentDesc rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Confident ;
+    bk:exampleText "We are Burger King, Home of the Whopper, Flame-grilled since, and damn proud of it. We do not hide behind the status quo; we are bold and unafraid. We can be bold but not flashy, proud but not vain, challenging but not in-your-face." .
+
+bk:WittyDesc rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Witty ;
+    bk:exampleText "We're smart and quick. We poke a little fun at ourselves and others. We know what's going on in culture and reference it without seeming too try-hard. We can be sarcastic but not cruel, ironic but not jaded, smart but not highbrow." .
+
+bk:ApproachableDesc rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Approachable ;
+    bk:exampleText "We're comfortable in our skin and talk to people at eye level, keeping the language simple, conversational, and authentic. What you see is what you get; our ingredients are real, and so are we. We are clear not terse, real not pretentious, friendly not false." .
+
+# Verbal Inspiration Examples
+bk:InspirationExample1 rdf:type bk:VerbalIdentity ;
+    bk:exampleText "Sliced on the daily" .
+
+bk:InspirationExample2 rdf:type bk:VerbalIdentity ;
+    bk:exampleText "The one, the only" .
+
+bk:InspirationExample3 rdf:type bk:VerbalIdentity ;
+    bk:exampleText "Flame-seared" .
+
+bk:InspirationExample4 rdf:type bk:VerbalIdentity ;
+    bk:exampleText "Double the Whopper, double the hands" .
