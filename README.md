@@ -61,3 +61,7 @@ To run the application, follow these steps:
    `npm install`
 4. Start the frontend and backend servers (in each folder):  
    `npm run dev`
+
+### Notes  
+SparQL queries can be added or customised in the `src/queries.ts` file.  
+OpenAI system prompts can be further refined in the `src/prompts.json` file.
