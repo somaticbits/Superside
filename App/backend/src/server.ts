@@ -3,6 +3,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import OpenAI from "openai";
 import "dotenv/config";
+import ParsingClient from 'sparql-http-client/ParsingClient'
+import { getToneOfVoice } from "./queries";
 
 import prompts from "./prompts.json";
 
@@ -11,12 +13,12 @@ const GRAPHDB_ENDPOINT = "http://localhost:7200/repositories/superside";
 
 const app = express();
 const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
-const driver =
+const client = new ParsingClient({ endpointUrl: GRAPHDB_ENDPOINT });
 
 app.use(bodyParser.json());
 app.use(cors());
 
-app.post("/api/chat", async (req, res) => {
+app.post("/api/tov", async (req, res) => {
   const { message } = req.body;
 
   try {
@@ -27,10 +29,23 @@ app.post("/api/chat", async (req, res) => {
       ],
       model: "gpt-4o-mini",
       temperature: 0.0,
-    }).then(response => res.status(200).json({ response: response.choices[0].message.content }))
+    }).then(response => res.status(200).json({ response: response.choices[0].message.content.replace(/[^a-z0-9]/gi, '') }))
   } catch (error) {
     console.error(error);
     res.status(500).json({ response: "Sorry, I am not able to respond right now." });
+    return;
+  }
+})
+
+app.get("/api/email", async (req, res) => {
+  const { characteristic } = req.query;
+
+  try {
+      const result = await client.query.select(getToneOfVoice(characteristic as string));
+      res.status(200).json({ response: result[0].emailCopy.value });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({response: "Sorry, I am not able to respond right now."});
     return;
   }
 })
