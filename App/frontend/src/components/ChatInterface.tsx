@@ -1,11 +1,23 @@
 import React, {useState, useRef, useEffect} from "react";
 import {API_URL} from "../constants";
 
+interface Message {
+    user: boolean;
+    text: string;
+}
+
 const ChatInterface: React.FC = () => {
-    const [messages, setMessages] = useState<{ user: boolean, text: string }[]>([]);
+    const [messages, setMessages] = useState<Message[]>(()=>{
+        const storedMessages = localStorage.getItem('messages');
+        return storedMessages ? JSON.parse(storedMessages) : []
+    });
     const [input, setInput] = useState("");
     const [loading, setLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        localStorage.setItem('messages', JSON.stringify(messages));
+    }, [messages]);
 
     const sendMessage = async () => {
         if (!input.trim()) return;
