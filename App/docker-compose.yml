@@ -5,9 +5,7 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     environment:
-      - OPENAI_API_KEY=sk-proj-fo7CY0PuT1ECmr4Gakr4T3BlbkFJrJ7W4Xl6NcQIjus6viHo
-    ports:
-      - "3000:3000"
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
     depends_on:
       - frontend
 
@@ -32,7 +30,7 @@ services:
     environment:
       GDB_JAVA_OPTS: -Xms4G -Xmx4G
       graphdb.connector.port: "7200"
-      graphdb.gpt.token: "sk-proj-fo7CY0PuT1ECmr4Gakr4T3BlbkFJrJ7W4Xl6NcQIjus6viHo"
+      graphdb.gpt.token: ${OPENAI_API_KEY}
       graphdb.gpt.model: gpt-3.5-turbo
       graphdb.gpt.timeout: 180
       graphdb.gpt.url: https://api.openai.com/v1/chat/completions

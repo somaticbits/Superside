@@ -18,5 +18,4 @@ COPY package*.json ./backend/
 WORKDIR /app/backend
 RUN npm install --omit=dev
 
-EXPOSE 3000
 CMD ["node", "server.js"]

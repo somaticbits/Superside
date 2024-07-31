@@ -11,7 +11,7 @@ COPY . ./
 RUN npm run build
 
 # ---- Nginx ----
-FROM nginx:1.21 AS nginx
+FROM nginx:stable-alpine
 RUN apk add --no-cache certbot certbot-nginx
 COPY --from=frontend /app/frontend/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf

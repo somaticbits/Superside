@@ -1,5 +1,5 @@
 import React, {useState, useRef, useEffect} from "react";
-import {API_URL} from "../constants";
+// import {API_URL} from "../constants";
 
 interface Message {
     user: boolean;
@@ -15,6 +15,7 @@ const ChatInterface: React.FC = () => {
     const [loading, setLoading] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
 
+    // Save messages to local storage
     useEffect(() => {
         localStorage.setItem('messages', JSON.stringify(messages));
     }, [messages]);
@@ -22,27 +23,38 @@ const ChatInterface: React.FC = () => {
     const sendMessage = async () => {
         if (!input.trim()) return;
         const newMessages = [...messages, {user: true, text: input}];
-        setMessages(newMessages);
         setInput("");
         setLoading(true);
 
+        // Get the tone of voice and generate an email template
+        // Else return an error message
         try {
-            const toneOfVoiceRes = await fetch(`${API_URL}/tov`, {
+            const toneOfVoiceRes = await fetch(`api/tov`, {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({message: input}),
             });
             const toneOfVoiceData = await toneOfVoiceRes.json();
 
-            const emailRes = await fetch(`${API_URL}/email?characteristic=bk:${toneOfVoiceData.response}`);
+            const emailRes = await fetch(`api/email?characteristic=bk:${toneOfVoiceData.response}`, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({message: input}),
+            });
             const emailData = await emailRes.json();
 
-            setMessages([...newMessages, {user: false, text: emailData.response}]);
+            newMessages.push({user: false, text: emailData.response});
         } catch (error) {
             console.error(error);
-            setMessages([...newMessages, {user: false, text: "Sorry, I am not able to respond right now."}]);
+            newMessages.push({user: false, text: "Sorry, I am not able to respond right now."});
         }
 
+        // Keep only the last 50 messages
+        while (newMessages.length > 50) {
+            newMessages.shift();
+        }
+
+        setMessages(newMessages);
         setLoading(false);
     };
 

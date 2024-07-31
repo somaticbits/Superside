@@ -3,8 +3,8 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "target": "ES2015",
-    "module": "ES2015",
-    "moduleResolution": "nodenext",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "outDir": "./dist",
   }
 }
