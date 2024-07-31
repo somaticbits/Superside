@@ -1,3 +1,5 @@
+![](superside.logo.svg)
+
 # Superside RAG Application
 
 This is a RAG built with React and TypeScript, and served with Nginx in a Docker container.  
