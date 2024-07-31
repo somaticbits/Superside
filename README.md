@@ -62,6 +62,7 @@ To run the application, follow these steps:
    `npm install`
 4. Start the frontend and backend servers (in each folder):  
    `npm run dev`
+5. Additionally, add your OpenAI API key to an `.env` file in the `backend` folder.
 
 ### Notes  
 SparQL queries can be added or customised in the `src/queries.ts` file.  
