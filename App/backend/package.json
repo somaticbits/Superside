@@ -3,17 +3,20 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.17.1",
-    "openai": "^4.53.2"
+    "openai": "^4.53.2",
+    "sparql-http-client": "^3.0.0",
+    "tsx": "^4.16.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
-    "nodemon": "^3.1.4",
-    "ts-node": "^10.9.2"
+    "@types/sparql-http-client": "^3.0.2",
+    "nodemon": "^3.1.4"
   },
   "scripts": {
-    "dev": "nodemon --exec ts-node src/server.ts",
-    "start": "ts-node src/server.ts",
+    "dev": "nodemon --exec tsx src/server.ts",
+    "start": "tsx src/server.ts",
     "build": "tsc -p ."
-  }
+  },
+  "type": "module"
 }
