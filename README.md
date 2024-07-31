@@ -1,9 +1,10 @@
-![](./superside.logo.svg)
-
 # Superside RAG Application
 
 This is a RAG built with React and TypeScript, and served with Nginx in a Docker container.  
 It uses a custom dataset from a given PDF to provide custom on brand email templates to anyone needing it.
+
+## Live Prototype
+The live prototype can be found here: `https://superside.somaticbits.xyz`
 
 ## Prerequisites
 
