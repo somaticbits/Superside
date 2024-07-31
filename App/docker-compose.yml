@@ -36,8 +36,6 @@ services:
       graphdb.gpt.url: https://api.openai.com/v1/chat/completions
     volumes:
       - graphdb_data:/opt/graphdb/home
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
 
 volumes:
     nginx-conf:

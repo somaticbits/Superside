@@ -9,7 +9,7 @@ import { getEmailTemplate } from "./queries.js";
 import prompts from "./prompts.json" assert { type: "json" };
 
 const SERVER_PORT = 3000;
-const GRAPHDB_ENDPOINT = "http://host.docker.internal:7200/repositories/superside";
+const GRAPHDB_ENDPOINT = "http://172.17.0.1:7200/repositories/superside";
 
 const app = express();
 const openai = new OpenAI({apiKey: process.env.OPENAI_API_KEY});
