@@ -14,17 +14,23 @@ const ChatInterface: React.FC = () => {
         setInput("");
         setLoading(true);
 
-        const toneOfVoiceRes = await fetch(`${API_URL}/tov`, {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({message: input}),
-        });
-        const toneOfVoiceData = await toneOfVoiceRes.json();
+        try {
+            const toneOfVoiceRes = await fetch(`${API_URL}/tov`, {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({message: input}),
+            });
+            const toneOfVoiceData = await toneOfVoiceRes.json();
 
-        const emailRes = await fetch(`${API_URL}/email?characteristic=bk:${toneOfVoiceData.response}`);
-        const emailData = await emailRes.json();
+            const emailRes = await fetch(`${API_URL}/email?characteristic=bk:${toneOfVoiceData.response}`);
+            const emailData = await emailRes.json();
 
-        setMessages([...newMessages, {user: false, text: emailData.response}]);
+            setMessages([...newMessages, {user: false, text: emailData.response}]);
+        } catch (error) {
+            console.error(error);
+            setMessages([...newMessages, {user: false, text: "Sorry, I am not able to respond right now."}]);
+        }
+
         setLoading(false);
     };
 
