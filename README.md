@@ -1,6 +1,7 @@
 # SuperSide Chat Application
 
-This is a chat application built with React and TypeScript, and served with Nginx in a Docker container.
+This is a RAG built with React and TypeScript, and served with Nginx in a Docker container.  
+It uses a custom dataset from a given PDF to provide custom on brand email templates to anyone needing it.
 
 ## Prerequisites
 
