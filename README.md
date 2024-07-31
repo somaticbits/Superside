@@ -34,9 +34,7 @@ This TTL file that can be then imported into GraphDB.
 To do a quick test, the `Docker` folder contains a `docker-compose.yml` file that can be used to run a GraphDB instance.
 You'll need to add an OpenAI API key to the `docker-compose.yml` file if you want to use the ChatGPT API for GraphDB.  
 
-**Note:** due to an unsatisfying TTL file generation, this method has only been used to extract and clean the text from the PDF.  
-The actual generation of the TTL file has been done by an LLM which allows for a more precise and clean import into GraphDB.  
-So the recommended method is to gather the tone of voices guidelines and query an LLM for the TTL generation.
+**Note:** due to an unsatisfying TTL file generation, this method has only been used to extract and clean the text from the PDF. The actual generation of the TTL file has been done by an LLM which allows for a more precise and clean import into GraphDB. So the recommended method is to gather the tone of voices guidelines and query an LLM for the TTL generation.
 
 
 ## App
