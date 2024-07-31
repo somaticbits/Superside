@@ -7,7 +7,7 @@ services:
     environment:
       - OPENAI_API_KEY=sk-proj-fo7CY0PuT1ECmr4Gakr4T3BlbkFJrJ7W4Xl6NcQIjus6viHo
     ports:
-      - 3000:3000
+      - "3000:3000"
     depends_on:
       - frontend
 
@@ -16,8 +16,8 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"
     volumes:
       - ./frontend:/app/
       - nginx-conf:/etc/nginx/conf.d
