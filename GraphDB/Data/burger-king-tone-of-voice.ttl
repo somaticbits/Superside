@@ -27,7 +27,7 @@ bk:Approachable rdf:type bk:Characteristic ;
     rdfs:label "Approachable" ;
     bk:description "We're comfortable in our skin and talk to people at eye level, keeping the language simple, conversational, and authentic. What you see is what you get; our ingredients are real, and so are we. We are clear not terse, real not pretentious, friendly not false." .
 
-# Examples of Verbal Identity
+# Examples of Verbal Identity Characteristics
 bk:Example1 rdf:type bk:VerbalIdentity ;
     bk:hasCharacteristic bk:Enthusiastic ;
     bk:exampleText "Ooey gooey melty cheese" .
@@ -52,22 +52,70 @@ bk:Example6 rdf:type bk:VerbalIdentity ;
     bk:hasCharacteristic bk:Approachable ;
     bk:exampleText "Order in with pickup or free delivery" .
 
-# Descriptions of Verbal Identity Characteristics
-bk:EnthusiasticDesc rdf:type bk:VerbalIdentity ;
+# Do's and Don'ts for Verbal Identity Characteristics
+bk:EnthusiasticDo1 rdf:type bk:VerbalIdentity ;
     bk:hasCharacteristic bk:Enthusiastic ;
-    bk:exampleText "We unashamedly revel in our food and its deliciousness with bold, upbeat adjectives that describe the taste, look, and texture. We can be energetic but not manic, excited but not naive, spirited but not childish." .
+    bk:exampleText "Do: Ooey gooey melty cheese" .
 
-bk:ConfidentDesc rdf:type bk:VerbalIdentity ;
+bk:EnthusiasticDont1 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Enthusiastic ;
+    bk:exampleText "Don't: Cheese Cheese Cheese" .
+
+bk:EnthusiasticDo2 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Enthusiastic ;
+    bk:exampleText "Do: Piping hot and golden brown" .
+
+bk:EnthusiasticDont2 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Enthusiastic ;
+    bk:exampleText "Don't: Tots that are hots" .
+
+bk:ConfidentDo1 rdf:type bk:VerbalIdentity ;
     bk:hasCharacteristic bk:Confident ;
-    bk:exampleText "We are Burger King, Home of the Whopper, Flame-grilled since, and damn proud of it. We do not hide behind the status quo; we are bold and unafraid. We can be bold but not flashy, proud but not vain, challenging but not in-your-face." .
+    bk:exampleText "Do: Home of the Whopper" .
 
-bk:WittyDesc rdf:type bk:VerbalIdentity ;
+bk:ConfidentDont1 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Confident ;
+    bk:exampleText "Don't: The best burger on the planet" .
+
+bk:ConfidentDo2 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Confident ;
+    bk:exampleText "Do: Have It Your Way" .
+
+bk:ConfidentDont2 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Confident ;
+    bk:exampleText "Don't: The King reigns supreme" .
+
+bk:WittyDo1 rdf:type bk:VerbalIdentity ;
     bk:hasCharacteristic bk:Witty ;
-    bk:exampleText "We're smart and quick. We poke a little fun at ourselves and others. We know what's going on in culture and reference it without seeming too try-hard. We can be sarcastic but not cruel, ironic but not jaded, smart but not highbrow." .
+    bk:exampleText "Do: The only burger that plays with fire and never gets burned" .
 
-bk:ApproachableDesc rdf:type bk:VerbalIdentity ;
+bk:WittyDont1 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Witty ;
+    bk:exampleText "Don't: Our burgers rise from the flames as the Phoenix once did in ancient times" .
+
+bk:WittyDo2 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Witty ;
+    bk:exampleText "Do: Social distance with your friends but not our food" .
+
+bk:WittyDont2 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Witty ;
+    bk:exampleText "Don't: Please follow all state safety regulations when picking up food" .
+
+bk:ApproachableDo1 rdf:type bk:VerbalIdentity ;
     bk:hasCharacteristic bk:Approachable ;
-    bk:exampleText "We're comfortable in our skin and talk to people at eye level, keeping the language simple, conversational, and authentic. What you see is what you get; our ingredients are real, and so are we. We are clear not terse, real not pretentious, friendly not false." .
+    bk:exampleText "Do: Order in with pickup or free delivery" .
+
+bk:ApproachableDont1 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Approachable ;
+    bk:exampleText "Don't: Orders available for pickup or delivery only" .
+
+bk:ApproachableDo2 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Approachable ;
+    bk:exampleText "Do: Come on in" .
+
+bk:ApproachableDont2 rdf:type bk:VerbalIdentity ;
+    bk:hasCharacteristic bk:Approachable ;
+    bk:exampleText "Don't: Come to the place where every Guest is treated like royalty" .
 
 # Verbal Inspiration Examples
 bk:InspirationExample1 rdf:type bk:VerbalIdentity ;
