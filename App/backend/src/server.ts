@@ -56,5 +56,5 @@ app.post("/api/email", async (req, res) => {
 })
 
 app.listen(3000, () => {
-  console.log("Server is runnning on", SERVER_PORT);
+  console.log("Server is runnning on port ", SERVER_PORT);
 })
